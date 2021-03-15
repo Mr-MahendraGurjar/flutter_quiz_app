@@ -96,9 +96,14 @@ class HomePage extends StatelessWidget {
                     alignment: Alignment.topRight,
                     child: GestureDetector(
                       onTap: () {
-                        _homeController.saveData();
-                        _homeController.selectedValue.value = '';
-                        _homeController.nextquestion();
+                        if (_homeController.i.value <=
+                            _homeController.mydata.length) {
+                          _homeController.timer.value = 0;
+                        } else {
+                          _homeController.saveData();
+                          _homeController.selectedValue.value = '';
+                          _homeController.nextquestion();
+                        }
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(top: 40.0, right: 40),
